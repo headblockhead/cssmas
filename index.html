@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Have a merry CSSmas!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: #2c3e50;
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-top: 0px;
+      }
+
+      b {
+        color: #AAE47A;
+      }
+
+      p {
+        font-size: 1.5em;
+        margin-top: 20px;
+        margin-bottom: 0px;
+      }
+
+      noscript {
+        font-size: 1em;
+        margin-top: 20px;
+      }
+
+      footer {
+        margin-top: 50px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        align-items: end;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+      }
+
+      footer p {
+        margin: 10px;
+        font-size: 1.5em;
+      }
+
+      a {
+        color: #AAE47A;
+      }
+    </style>
+    <style>
+      .snow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .round1,
+      .round2,
+      .round3 {
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        top: -8px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .snowflake {
+        background-color: #fff;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        overflow: visible;
+      }
+
+      .round1>.snowflake {
+        animation: fall1 20.4s infinite cubic-bezier(.04, .17, .67, .68);
+      }
+
+      .round2>.snowflake {
+        animation: fall2 15.2s infinite cubic-bezier(.07, .62, .81, .98);
+      }
+
+      .round3>.snowflake {
+        animation: fall3 18.3s infinite cubic-bezier(.16, .28, .84, .87);
+      }
+
+      .round1>.snowflake:nth-child(1) {
+        animation-delay: 4.12s;
+      }
+
+      .round1>.snowflake:nth-child(2) {
+        animation-delay: 5.21s;
+      }
+
+      .round1>.snowflake:nth-child(3) {
+        animation-delay: 24.43s;
+      }
+
+      .round1>.snowflake:nth-child(4) {
+        animation-delay: 8.12s;
+      }
+
+      .round1>.snowflake:nth-child(5) {
+        animation-delay: 12.12s;
+      }
+
+      .round1>.snowflake:nth-child(6) {
+        animation-delay: 3.12s;
+      }
+
+      .round1>.snowflake:nth-child(7) {
+        animation-delay: 3.787s;
+      }
+
+      .round1>.snowflake:nth-child(8) {
+        animation-delay: 2.53s;
+      }
+
+      .round1>.snowflake:nth-child(9) {
+        animation-delay: 2.26s;
+      }
+
+      .round1>.snowflake:nth-child(10) {
+        animation-delay: 0.16s;
+      }
+
+      .round1>.snowflake:nth-child(11) {
+        animation-delay: 12.83s;
+      }
+
+      .round1>.snowflake:nth-child(12) {
+        animation-delay: 9.64s;
+      }
+
+      .round1>.snowflake:nth-child(13) {
+        animation-delay: 7.98s;
+      }
+
+      .round1>.snowflake:nth-child(14) {
+        animation-delay: 8.12s;
+      }
+
+      .round1>.snowflake:nth-child(15) {
+        animation-delay: 4.87s;
+      }
+
+      .round1>.snowflake:nth-child(16) {
+        animation-delay: 12.23s;
+      }
+
+      .round1>.snowflake:nth-child(17) {
+        animation-delay: 6.43s;
+      }
+
+      .round1>.snowflake:nth-child(18) {
+        animation-delay: 3.99s;
+      }
+
+      .round1>.snowflake:nth-child(19) {
+        animation-delay: 10.42s;
+      }
+
+      .round1>.snowflake:nth-child(20) {
+        animation-delay: 13.2s;
+      }
+
+      .round1>.snowflake:nth-child(21) {
+        animation-delay: 12.4s;
+      }
+
+      .round1>.snowflake:nth-child(22) {
+        animation-delay: 5.423s;
+      }
+
+      .round1>.snowflake:nth-child(23) {
+        animation-delay: 15.98s;
+      }
+
+      .round1>.snowflake:nth-child(24) {
+        animation-delay: 18.34s;
+      }
+
+      .round1>.snowflake:nth-child(25) {
+        animation-delay: 14.441s;
+      }
+
+      .round1>.snowflake:nth-child(26) {
+        animation-delay: 15.87s;
+      }
+
+      .round1>.snowflake:nth-child(27) {
+        animation-delay: 12.89s;
+      }
+
+      .round1>.snowflake:nth-child(28) {
+        animation-delay: 8.23s;
+      }
+
+      .round1>.snowflake:nth-child(29) {
+        animation-delay: 16.98s;
+      }
+
+      .round1>.snowflake:nth-child(30) {
+        animation-delay: 17.39s;
+      }
+
+      .round1>.snowflake:nth-child(31) {
+        animation-delay: 10.52s;
+      }
+
+      .round1>.snowflake:nth-child(32) {
+        animation-delay: 7.98s;
+      }
+
+      .round1>.snowflake:nth-child(33) {
+        animation-delay: 5.42s;
+      }
+
+      .round1>.snowflake:nth-child(34) {
+        animation-delay: 19.2s;
+      }
+
+      .round1>.snowflake:nth-child(35) {
+        animation-delay: 2.4s;
+      }
+
+      .round1>.snowflake:nth-child(36) {
+        animation-delay: 4.42s;
+      }
+
+      .round1>.snowflake:nth-child(37) {
+        animation-delay: 20.98s;
+      }
+
+      .round1>.snowflake:nth-child(38) {
+        animation-delay: 21.34s;
+      }
+
+      .round1>.snowflake:nth-child(39) {
+        animation-delay: 10.441s;
+      }
+
+      .round1>.snowflake:nth-child(40) {
+        animation-delay: 7.87s;
+      }
+
+      .round1>.snowflake:nth-child(41) {
+        animation-delay: 13.89s;
+      }
+
+      .round1>.snowflake:nth-child(42) {
+        animation-delay: 24.23s;
+      }
+
+      .round1>.snowflake:nth-child(43) {
+        animation-delay: 20.98s;
+      }
+
+      .round1>.snowflake:nth-child(44) {
+        animation-delay: 2.39s;
+      }
+
+      .round1>.snowflake:nth-child(45) {
+        animation-delay: 5.52s;
+      }
+
+      .round1>.snowflake:nth-child(46) {
+        animation-delay: 2.98s;
+      }
+
+      .round1>.snowflake:nth-child(47) {
+        animation-delay: 26.42s;
+      }
+
+      .round1>.snowflake:nth-child(48) {
+        animation-delay: 5.2s;
+      }
+
+      .round1>.snowflake:nth-child(49) {
+        animation-delay: 27.4s;
+      }
+
+      .round1>.snowflake:nth-child(50) {
+        animation-delay: 9.42s;
+      }
+
+      .round2>.snowflake:nth-child(50) {
+        animation-delay: 25.2s;
+      }
+
+      .round2>.snowflake:nth-child(49) {
+        animation-delay: 4.23s;
+      }
+
+      .round2>.snowflake:nth-child(48) {
+        animation-delay: 8.217s;
+      }
+
+      .round2>.snowflake:nth-child(47) {
+        animation-delay: 30.127s;
+      }
+
+      .round2>.snowflake:nth-child(46) {
+        animation-delay: 21.123s;
+      }
+
+      .round2>.snowflake:nth-child(45) {
+        animation-delay: 12.987s;
+      }
+
+      .round2>.snowflake:nth-child(44) {
+        animation-delay: 5.2345s;
+      }
+
+      .round2>.snowflake:nth-child(43) {
+        animation-delay: 9.7869s;
+      }
+
+      .round2>.snowflake:nth-child(42) {
+        animation-delay: 23.3827s;
+      }
+
+      .round2>.snowflake:nth-child(41) {
+        animation-delay: 20.7980s;
+      }
+
+      .round2>.snowflake:nth-child(40) {
+        animation-delay: 18.6453s;
+      }
+
+      .round2>.snowflake:nth-child(39) {
+        animation-delay: 8.987s;
+      }
+
+      .round2>.snowflake:nth-child(38) {
+        animation-delay: 9.36847s;
+      }
+
+      .round2>.snowflake:nth-child(37) {
+        animation-delay: 3.4213s;
+      }
+
+      .round2>.snowflake:nth-child(36) {
+        animation-delay: 23.796s;
+      }
+
+      .round2>.snowflake:nth-child(35) {
+        animation-delay: 19.41235s;
+      }
+
+      .round2>.snowflake:nth-child(34) {
+        animation-delay: 14.98s;
+      }
+
+      .round2>.snowflake:nth-child(33) {
+        animation-delay: 12.7982341s;
+      }
+
+      .round2>.snowflake:nth-child(32) {
+        animation-delay: 16.42s;
+      }
+
+      .round2>.snowflake:nth-child(31) {
+        animation-delay: 17.678s;
+      }
+
+      .round2>.snowflake:nth-child(30) {
+        animation-delay: 14.123s;
+      }
+
+      .round2>.snowflake:nth-child(29) {
+        animation-delay: 25.423s;
+      }
+
+      .round2>.snowflake:nth-child(28) {
+        animation-delay: 23.98s;
+      }
+
+      .round2>.snowflake:nth-child(27) {
+        animation-delay: 26.34s;
+      }
+
+      .round2>.snowflake:nth-child(26) {
+        animation-delay: 18.441s;
+      }
+
+      .round2>.snowflake:nth-child(25) {
+        animation-delay: 5.87s;
+      }
+
+      .round2>.snowflake:nth-child(24) {
+        animation-delay: 16.89s;
+      }
+
+      .round2>.snowflake:nth-child(23) {
+        animation-delay: 7.23s;
+      }
+
+      .round2>.snowflake:nth-child(22) {
+        animation-delay: 9.98s;
+      }
+
+      .round2>.snowflake:nth-child(21) {
+        animation-delay: 2.39s;
+      }
+
+      .round2>.snowflake:nth-child(20) {
+        animation-delay: 17.52s;
+      }
+
+      .round2>.snowflake:nth-child(19) {
+        animation-delay: 12.98s;
+      }
+
+      .round2>.snowflake:nth-child(18) {
+        animation-delay: 10.42s;
+      }
+
+      .round2>.snowflake:nth-child(17) {
+        animation-delay: 9.2s;
+      }
+
+      .round2>.snowflake:nth-child(16) {
+        animation-delay: 1.4s;
+      }
+
+      .round2>.snowflake:nth-child(15) {
+        animation-delay: 9.42s;
+      }
+
+      .round2>.snowflake:nth-child(14) {
+        animation-delay: 20.98s;
+      }
+
+      .round2>.snowflake:nth-child(13) {
+        animation-delay: 14.34s;
+      }
+
+      .round2>.snowflake:nth-child(12) {
+        animation-delay: 17.441s;
+      }
+
+      .round2>.snowflake:nth-child(11) {
+        animation-delay: 13.87s;
+      }
+
+      .round2>.snowflake:nth-child(10) {
+        animation-delay: 23.89s;
+      }
+
+      .round2>.snowflake:nth-child(9) {
+        animation-delay: 4.23s;
+      }
+
+      .round2>.snowflake:nth-child(8) {
+        animation-delay: 14.98s;
+      }
+
+      .round2>.snowflake:nth-child(7) {
+        animation-delay: 5.39s;
+      }
+
+      .round2>.snowflake:nth-child(6) {
+        animation-delay: 25.52s;
+      }
+
+      .round2>.snowflake:nth-child(5) {
+        animation-delay: 6.98s;
+      }
+
+      .round2>.snowflake:nth-child(4) {
+        animation-delay: 20.42s;
+      }
+
+      .round2>.snowflake:nth-child(3) {
+        animation-delay: 27.2s;
+      }
+
+      .round2>.snowflake:nth-child(2) {
+        animation-delay: 22.4s;
+      }
+
+      .round2>.snowflake:nth-child(1) {
+        animation-delay: 30.42s;
+      }
+
+      .round3>.snowflake:nth-child(1) {
+        animation-delay: 4.52s;
+      }
+
+      .round3>.snowflake:nth-child(2) {
+        animation-delay: 5.41s;
+      }
+
+      .round3>.snowflake:nth-child(3) {
+        animation-delay: 21.4s;
+      }
+
+      .round3>.snowflake:nth-child(4) {
+        animation-delay: 29.2s;
+      }
+
+      .round3>.snowflake:nth-child(5) {
+        animation-delay: 8.12s;
+      }
+
+      .round3>.snowflake:nth-child(6) {
+        animation-delay: 12.12s;
+      }
+
+      .round3>.snowflake:nth-child(7) {
+        animation-delay: 3.12s;
+      }
+
+      .round3>.snowflake:nth-child(8) {
+        animation-delay: 3.787s;
+      }
+
+      .round3>.snowflake:nth-child(9) {
+        animation-delay: 2.53s;
+      }
+
+      .round3>.snowflake:nth-child(10) {
+        animation-delay: 2.26s;
+      }
+
+      .round3>.snowflake:nth-child(11) {
+        animation-delay: 0.14s;
+      }
+
+      .round3>.snowflake:nth-child(12) {
+        animation-delay: 12.4s;
+      }
+
+      .round3>.snowflake:nth-child(13) {
+        animation-delay: 12.2s;
+      }
+
+      .round3>.snowflake:nth-child(14) {
+        animation-delay: 8.5s;
+      }
+
+      .round3>.snowflake:nth-child(15) {
+        animation-delay: 4.5s;
+      }
+
+      .round3>.snowflake:nth-child(16) {
+        animation-delay: 6.3s;
+      }
+
+      .round3>.snowflake:nth-child(17) {
+        animation-delay: 14.52s;
+      }
+
+      .round3>.snowflake:nth-child(18) {
+        animation-delay: 6.9420s;
+      }
+
+      .round3>.snowflake:nth-child(19) {
+        animation-delay: 4.12s;
+      }
+
+      .round3>.snowflake:nth-child(20) {
+        animation-delay: 12.2s;
+      }
+
+      .round3>.snowflake:nth-child(21) {
+        animation-delay: 25.9s;
+      }
+
+      .round3>.snowflake:nth-child(22) {
+        animation-delay: 20.4s;
+      }
+
+      .round3>.snowflake:nth-child(23) {
+        animation-delay: 14.423s;
+      }
+
+      .round3>.snowflake:nth-child(24) {
+        animation-delay: 6.398s;
+      }
+
+      .round3>.snowflake:nth-child(25) {
+        animation-delay: 24.34s;
+      }
+
+      .round3>.snowflake:nth-child(26) {
+        animation-delay: 14.441s;
+      }
+
+      .round3>.snowflake:nth-child(27) {
+        animation-delay: 15.87s;
+      }
+
+      .round3>.snowflake:nth-child(28) {
+        animation-delay: 12.89s;
+      }
+
+      .round3>.snowflake:nth-child(29) {
+        animation-delay: 8.23s;
+      }
+
+      .round3>.snowflake:nth-child(30) {
+        animation-delay: 16.98s;
+      }
+
+      .round3>.snowflake:nth-child(31) {
+        animation-delay: 7.39s;
+      }
+
+      .round3>.snowflake:nth-child(32) {
+        animation-delay: 12.52s;
+      }
+
+      .round3>.snowflake:nth-child(33) {
+        animation-delay: 5.98s;
+      }
+
+      .round3>.snowflake:nth-child(34) {
+        animation-delay: 26.42s;
+      }
+
+      .round3>.snowflake:nth-child(35) {
+        animation-delay: 21.2s;
+      }
+
+      .round3>.snowflake:nth-child(36) {
+        animation-delay: 2.4s;
+      }
+
+      .round3>.snowflake:nth-child(37) {
+        animation-delay: 4.42s;
+      }
+
+      .round3>.snowflake:nth-child(38) {
+        animation-delay: 14.98s;
+      }
+
+      .round3>.snowflake:nth-child(39) {
+        animation-delay: 20.34s;
+      }
+
+      .round3>.snowflake:nth-child(40) {
+        animation-delay: 12.441s;
+      }
+
+      .round3>.snowflake:nth-child(41) {
+        animation-delay: 6.87s;
+      }
+
+      .round3>.snowflake:nth-child(42) {
+        animation-delay: 3.89s;
+      }
+
+      .round3>.snowflake:nth-child(43) {
+        animation-delay: 4.23s;
+      }
+
+      .round3>.snowflake:nth-child(44) {
+        animation-delay: 2.98s;
+      }
+
+      .round3>.snowflake:nth-child(45) {
+        animation-delay: 20.39s;
+      }
+
+      .round3>.snowflake:nth-child(46) {
+        animation-delay: 16.52s;
+      }
+
+      .round3>.snowflake:nth-child(47) {
+        animation-delay: 27.98s;
+      }
+
+      .round3>.snowflake:nth-child(48) {
+        animation-delay: 22.42s;
+      }
+
+      .round3>.snowflake:nth-child(49) {
+        animation-delay: 14.2s;
+      }
+
+      .round3>.snowflake:nth-child(50) {
+        animation-delay: 24.4s;
+      }
+
+      @keyframes fall1 {
+        0% {
+          transform: translateY(-1vh) translateX(0);
+        }
+
+        80% {
+          transform: translateY(100vh) translateX(-10vw);
+        }
+
+        100% {
+          transform: translateY(105vh) translateX(-10vw);
+        }
+      }
+
+      @keyframes fall2 {
+        0% {
+          transform: translateY(-1vh) translateX(0);
+        }
+
+        80% {
+          transform: translateY(100vh) translateX(-7vw);
+        }
+
+        100% {
+          transform: translateY(105vh) translateX(-7vw);
+        }
+      }
+
+      @keyframes fall3 {
+        0% {
+          transform: translateY(-1vh) translateX(0);
+        }
+
+        80% {
+          transform: translateY(100vh) translateX(-9vw);
+        }
+
+        100% {
+          transform: translateY(105vh) translateX(-9vw);
+        }
+      }
+    </style>
+    <div class="snow">
+      <div class="round1">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+      </div>
+      <div class="round2">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+      </div>
+      <div class="round3">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+      </div>
+    </div>
+    <div>
+      <h1>Have a merry <b>CSSmas</b>!</h1>
+      <p>This website uses no Javascript, only CSS. It's a CSSmas miracle!</p>
+      <p>Try it! Turn off Javascript in your browser and refresh the page.</p>
+      <noscript>
+        <p>Congratulations! You've turned off Javascript, as the HTML god always intended. Enjoy the CSS snow!</p>
+      </noscript>
+    </div>
+    <footer>
+      <p>Created by <a href="https://edwardh.dev">Edward Hesketh</a>
+      </p>
+    </footer>
+  </body>
+</html>
